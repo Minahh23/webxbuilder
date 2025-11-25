@@ -1,5 +1,7 @@
 # Website Builder Agent
 
+![CI](https://github.com/Minahh23/webxbuilder/actions/workflows/ci-cd.yml/badge.svg)
+
 An AI-powered agent that creates websites on demand using OpenAI's GPT-4 model.
 
 ## Features

@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+  --primary: #2563eb;
+  --secondary: #1e40af;
+  --accent: #0c4a6e;
+}
+
+@layer components {
+  .btn-modern {
+    @apply inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg transition-all duration-200 ease-in-out;
+  }
+
+  .btn-modern-primary {
+    @apply btn-modern bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg;
+  }
+
+  .btn-modern-secondary {
+    @apply btn-modern bg-gray-200 text-gray-800 hover:bg-gray-300;
+  }
+
+  .card-modern {
+    @apply rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-lg transition-shadow duration-200;
+  }
+
+  .hero-section {
+    @apply min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 py-20 px-4;
+  }
+
+  .container-modern {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Smooth animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+
+  .dark\:bg-gray-900 {
+    background-color: #111827;
+  }
+
+  .dark\:text-white {
+    color: #ffffff;
+  }
+}

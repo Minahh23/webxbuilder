@@ -10,8 +10,8 @@ RUN npm ci --only=production || npm install --only=production
 # Copy source
 COPY . .
 
-# Build TypeScript
-RUN npm run build || true
+# Build TypeScript and CSS
+RUN npm run build
 
 EXPOSE 3000
 

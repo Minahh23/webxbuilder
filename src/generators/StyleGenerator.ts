@@ -12,7 +12,7 @@ export class StyleGenerator {
 
   async generate(analysis: Record<string, any>): Promise<string> {
     try {
-      logger.info('Generating CSS styles');
+      logger.info('Generating CSS styles with Tailwind + Bootstrap');
 
       const palette = analysis.palette || ['#2563eb', '#1e40af', '#ffffff'];
       const theme = analysis.theme || 'modern';
@@ -22,28 +22,42 @@ export class StyleGenerator {
         messages: [
           {
             role: 'user',
-            content: `Generate modern, responsive CSS for a ${theme} themed website.
+            content: `Generate a modern CSS stylesheet that combines Tailwind CSS utility classes and Bootstrap components for a ${theme} themed website.
 
 Color Palette: ${palette.join(', ')}
 Theme: ${theme}
 Type: ${analysis.type}
 
-Create a complete CSS file with:
-- Responsive design
-- Mobile-first approach
-- CSS variables for colors
-- Smooth transitions and animations
-- Typography styles
-- Layout components
+Use:
+- Tailwind CSS utility-first classes (e.g., flex, grid, m-4, p-6, text-lg, hover:bg-blue-500)
+- Bootstrap 5 component classes where appropriate (e.g., btn, btn-primary, container, row, col-md-6)
+- CSS custom properties (variables) for the color palette
+- Responsive design with Tailwind breakpoints (sm:, md:, lg:, xl:)
+- Modern animations and transitions using Tailwind and custom CSS
+- Dark mode support using Tailwind's dark: prefix
 
-Return ONLY CSS code, no markdown or explanations.`,
+Return complete CSS/Tailwind configuration:
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+  --primary: ${palette[0]};
+  --secondary: ${palette[1]};
+  --background: ${palette[2]};
+}
+
+[Your custom component styles and utility overrides here]
+
+Include utility classes for common components and ensure Bootstrap grid system integration.`,
           },
         ],
         temperature: 0.7,
       });
 
       const css = message.choices[0].message.content || '';
-      logger.info('CSS generated successfully');
+      logger.info('CSS generated successfully with Tailwind + Bootstrap');
       return css;
     } catch (error) {
       logger.error('Failed to generate CSS:', error);

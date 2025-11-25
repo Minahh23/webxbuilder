@@ -1,0 +1,41 @@
+{
+  "name": "website-builder-agent",
+  "version": "1.0.0",
+  "description": "AI-powered agent that creates websites on demand",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "test": "jest",
+    "watch": "tsc --watch"
+  },
+  "keywords": [
+    "ai",
+    "website-builder",
+    "automation",
+    "agent"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "openai": "^4.24.0",
+    "cheerio": "^1.0.0-rc.12",
+    "puppeteer": "^21.3.0",
+    "fs-extra": "^11.1.1",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/express": "^4.17.21",
+    "@types/fs-extra": "^11.0.4",
+    "typescript": "^5.3.2",
+    "ts-node": "^10.9.1",
+    "@types/jest": "^29.5.8",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1"
+  }
+}
